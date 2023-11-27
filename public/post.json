@@ -1,0 +1,114 @@
+[
+    {
+      "authorImage": "https://i.ibb.co/8cHTC7B/memder1.jpg",
+      "authorName": "JohnSmith",
+      "authorEmail": "john.smith@example.com",
+      "postTitle": "Morning Jogging Routine",
+      "postDescription": "Sharing my daily morning jogging routine. Let's discuss the benefits of regular exercise and share tips for staying motivated!",
+      "tags":"Wellness",
+      "upvote": 25,
+      "id": 1,
+      "downvote": 5
+    },
+    {
+      "authorImage": "https://i.ibb.co/SfY5Nzs/member3.jpg",
+      "authorName": "FoodieExplorer",
+      "authorEmail": "foodie.explorer@example.com",
+      "postTitle": "Cooking Authentic Thai Cuisine",
+      "postDescription": "Documenting my journey to master the art of cooking authentic Thai dishes. Join in to swap recipes, cooking techniques, and favorite Thai ingredients!",
+      "tags": "Cooking",
+      "upvote": 30,
+      "id": 2,
+      "downvote": 2
+    },
+    {
+      "authorImage": "https://i.ibb.co/X8Bt51F/member2.jpg",
+      "authorName": "AutoEnthusiast",
+      "authorEmail": "auto.enthusiast@example.com",
+      "postTitle": "Restoring a Classic Mustang",
+      "postDescription": "Follow my journey in restoring a classic Mustang. Car enthusiasts, share your restoration stories, tips, and advice on vintage car maintenance!",
+      "tags":  "Restoration",
+      "upvote": 40,
+      "id": 3,
+      "downvote": 8
+    },
+    {
+      "authorImage": "https://i.ibb.co/ygm1qD3/member4.jpg",
+      "authorName": "MusicLover",
+      "authorEmail": "music.lover@example.com",
+      "postTitle": "Learning Jazz Guitar Techniques",
+      "postDescription": "Embarking on a musical journey to master jazz guitar techniques. Share your favorite jazz compositions, tips for learning, and connect with fellow musicians!",
+      "tags": "Music", 
+      "upvote": 28,
+      "id":4,
+      "downvote": 4
+    },
+    {
+      "authorImage": "https://i.ibb.co/swmck5h/member5.jpg",
+      "authorName": "TravelAdventurer",
+      "authorEmail": "travel.adventurer@example.com",
+      "postTitle": "Solo Backpacking Across Europe",
+      "postDescription": "Chronicles of my solo backpacking adventure across Europe. Join the conversation, share your travel tales, and exchange tips for budget-friendly exploring!",
+      "tags":  "Solo Travel",
+      "upvote": 35,
+      "id":5,
+      "downvote": 6
+    },
+   
+    {
+        "authorImage": "https://i.ibb.co/8cHTC7B/memder1.jpg",
+        "authorName": "Sarah Johnson",
+        "authorEmail": "sarah.j@example.com",
+        "postTitle": "Running a Marathon for Charity",
+        "postDescription": "Sharing my journey training for a marathon to raise funds for a local charity. Let's discuss running tips and the impact of fitness on social causes.",
+        "tags": ["Running", "Fitness", "Charity"],
+        "upvote": 25,
+        "id":13,
+        "downvote": 5
+      },
+      {
+        "authorImage": "https://i.ibb.co/SfY5Nzs/member3.jpg",
+        "authorName": "Alex Rodriguez",
+        "authorEmail": "alex.rodriguez@example.com",
+        "postTitle": "Cooking Adventures: Mastering French Cuisine",
+        "postDescription": "Documenting my quest to master classic French dishes. Share your favorite recipes, cooking techniques, and join the culinary conversation!",
+        "tags": "Cooking",
+        "upvote": 30,
+        "id":14,
+        "downvote": 2
+      },
+      {
+        "authorImage": "https://i.ibb.co/X8Bt51F/member2.jpg",
+        "authorName": "David Turner",
+        "authorEmail": "david.turner@example.com",
+        "postTitle": "Renovating My Vintage Car: A Labor of Love",
+        "postDescription": "Follow my journey restoring a vintage car to its former glory. Classic car enthusiasts, share your experiences and restoration tips!",
+        "tags":  "Restoration",
+        "upvote": 40,
+        "id":15,
+        "downvote": 8
+      },
+      {
+        "authorImage": "https://i.ibb.co/ygm1qD3/member4.jpg",
+        "authorName": "Emily Chen",
+        "authorEmail": "emily.chen@example.com",
+        "postTitle": "Learning to Play the Guitar: A Beginner's Journal",
+        "postDescription": "Embarking on a musical journey as a beginner guitarist. Let's exchange tips, song recommendations, and encourage each other in our musical pursuits.",
+        "tags":"Music", 
+        "upvote": 28,
+        "id":16,
+        "downvote": 4
+      },
+      {
+        "authorImage": "https://i.ibb.co/swmck5h/member5.jpg",
+        "authorName": "Mark Foster",
+        "authorEmail": "mark.foster@example.com",
+        "postTitle": "Solo Backpacking Through Southeast Asia",
+        "postDescription": "Sharing my solo travel adventures through Southeast Asia. Fellow travelers, join the conversation, and let's exchange travel stories and tips!",
+        "tags": "Solo Travel",
+        "upvote": 35,
+        "id":17,
+        "downvote": 6
+      }
+  ]
+  
