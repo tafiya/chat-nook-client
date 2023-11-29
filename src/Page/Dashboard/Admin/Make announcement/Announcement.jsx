@@ -31,25 +31,24 @@ const Announcement = () => {
         });
         console.log(res.data);
         if (res.data.success) {
-            // now send the menu item data to the server with the image url
-            const menuItem = {
+            // now send the announcement item data to the server with the image url
+            const announcementItem = {
                 name: data.name,
-                category: data.category,
-                price: parseFloat(data.price),
-                recipe: data.recipe,
+                title: data.title,
+                details: data.details,
                 image: res.data.data.display_url
             }
         
             // 
-            const menuRes = await axiosSecure.post('/menu', menuItem);
-            console.log(menuRes.data)
-            if(menuRes.data.insertedId){
+            const announcementRes = await axiosSecure.post('/announcements', announcementItem);
+            console.log(announcementRes.data)
+            if(announcementRes.data.insertedId){
                 //show success popup
                 reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the menu.`,
+                    title: `${data.title} is added to the announcement.`,
                     showConfirmButton: false,
                     timer: 1500
                   });
@@ -69,7 +68,7 @@ const Announcement = () => {
                     </label>
                     <input
                         type="text"
-                        placeholder="Recipe Name"
+                        placeholder="Author Name"
                         {...register('name', { required: true })}
                         required
                         className="input input-bordered w-full" />
@@ -86,22 +85,22 @@ const Announcement = () => {
                     {/* price */}
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Post Title*</span>
+                            <span className="label-text">Announcement Title*</span>
                         </label>
                         <input
-                            type="number"
-                            placeholder="Price"
-                            {...register('price', { required: true })}
+                            type="text"
+                            placeholder="Title"
+                            {...register('title', { required: true })}
                             className="input input-bordered w-full" />
                     </div>
 
                 </div>
-                {/* recipe details */}
+                {/* details details */}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Post Description</span>
+                        <span className="label-text">Announcement Description</span>
                     </label>
-                    <textarea {...register('recipe')} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                    <textarea {...register('details')} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                 </div>
 
              

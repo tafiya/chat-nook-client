@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import EachDetails from "./EachDetails";
+import postBanner from '../../assets/image/pexels-pixabay-267355.jpg'
 
 const VeiwDetails = () => {
-    const [NewItem,setNewItem]=useState([]);
+    const [NewPost,setNewPost]=useState([]);
     const {id}=useParams();
     console.log(id);
-    const events =useLoaderData();
-    console.log(events);
+    const posts =useLoaderData();
+    console.log(posts);
     useEffect(()=>{
-        const newEvent= events?.find(event=>event._id==id);
-        setNewItem(newEvent);
-    },[events,id])
-    console.log(NewItem);
+        const newEvent= posts?.find(event=>event._id==id);
+        setNewPost(newEvent);
+    },[posts,id])
+    console.log(NewPost);
     return (
         <div>
-            <EachDetails  NewItem={NewItem} key={NewItem._id}></EachDetails>
+            <img src={postBanner} className="h-[600px] w-full" alt="" />
+            <div className=" my-12">
+            <EachDetails  NewPost={NewPost} key={NewPost._id}></EachDetails>
+
+            </div>
+            
            
             
         </div>

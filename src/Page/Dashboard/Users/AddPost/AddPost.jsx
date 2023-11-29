@@ -4,6 +4,8 @@ import { MdPostAdd } from "react-icons/md";
 
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/UseAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 
 
 // import Swal from "sweetalert2";
@@ -16,7 +18,8 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const AddPost = () => {
     const { register,handleSubmit,reset} = useForm();
-   
+    const {user}=useContext(AuthContext);
+    const email=user.email;
     const axiosPublic = useAxiosPublic();
   
     const onSubmit = async (data) => {
@@ -34,11 +37,14 @@ const AddPost = () => {
         if (res.data.success) {
             // now send the post item data to the server with the image url
             const postItem = {
-                
+                email:email,
                 authorName: data.name,
                 authorImage: res.data.data.display_url,
                 tags: data.tag,
                 
+                upvote: parseFloat(data.upVote),
+                
+                downvote: parseFloat(data.downVote),
                  postTitle: data.post,
                 
                 postDescription: data.postdetails,
@@ -55,7 +61,7 @@ const AddPost = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the post.`,
+                    title: `${data.post} is added to the post.`,
                     showConfirmButton: false,
                     timer: 1500
                   });
@@ -125,6 +131,32 @@ const AddPost = () => {
                     </label>
                     <textarea {...register('postdetails')} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
                 </div>
+
+                  {/* price */}
+                  <div className="form-control w-1/3 my-6">
+                        <label className="label">
+                            <span className="label-text">UpVote*</span>
+                        </label>
+                        <input
+                        type="number"
+                        placeholder="UpVote"
+                        {...register('upVote', { required: true })}
+                        required
+                        className="input input-bordered w-full" />
+                      
+                    </div>
+                    <div className="form-control w-1/3 my-6">
+                        <label className="label">
+                            <span className="label-text">DownVote*</span>
+                        </label>
+                        <input
+                        type="number"
+                        placeholder="DownVote"
+                        {...register('downVote', { required: true })}
+                        required
+                        className="input input-bordered w-full" />
+                      
+                    </div>
 
              
 

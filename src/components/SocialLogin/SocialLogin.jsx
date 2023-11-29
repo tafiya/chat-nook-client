@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import useAxiosPublic from "../../hooks/UseAxiosPublic";
 import UseAuth from "../../hooks/UseAuth";
+import Swal from "sweetalert2";
 
 
 
@@ -24,6 +25,7 @@ const SocialLogin = () => {
             axiosPublic.post('/users', userInfo)
             .then(res =>{
                 console.log(res.data);
+                Swal.fire("login successfully done!");
                 navigate('/');
             })
         })
