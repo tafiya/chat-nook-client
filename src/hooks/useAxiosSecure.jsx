@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import UseAuth from "./UseAuth";
 
 export const axiosSecure= axios.create({
-    baseURL: 'http://localhost:5300'
+    baseURL: 'https://online-chat-nook-server.vercel.app'
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();

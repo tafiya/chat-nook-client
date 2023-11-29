@@ -1,7 +1,7 @@
 // import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 // import { NavLink, Outlet } from "react-router-dom";
 
-import { FaAd,  FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd,  FaHome, FaList,  FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
@@ -53,12 +53,6 @@ const Dashboard = () => {
                                         <FaHome></FaHome>
                                         My Profile</NavLink>
                                 </li>
-                             
-                                <li>
-                                    <NavLink to="/dashboard/cart">
-                                        <FaShoppingCart></FaShoppingCart>
-                                        My Cart ({cart.length})</NavLink>
-                                </li>
                                 <li>
                                     <NavLink to="/dashboard/addPost">
                                         <FaAd></FaAd>
@@ -92,7 +86,7 @@ const Dashboard = () => {
             </div>
             {/* dashboard content */}
             <div className="flex-1 p-8">
-                
+
                 <Outlet></Outlet>
             </div>
         </div>

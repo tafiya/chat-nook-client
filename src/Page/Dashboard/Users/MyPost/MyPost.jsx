@@ -9,7 +9,7 @@ const MyPost = () => {
     const [myPosts,setMyPosts]=useState([]);
     //${user?.email}
    
-    const url=`http://localhost:5300/posts?email=${user?.email}`;
+    const url=`https://online-chat-nook-server.vercel.app/posts?email=${user?.email}`;
     useEffect(()=>{
         // axios.get(url,{withCredentials:true})
         // .then(res=>{

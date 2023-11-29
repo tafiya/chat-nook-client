@@ -11,7 +11,7 @@ const usePosts = () => {
     //const [posts, setPosts] = useState([]);
     //const [loading, setLoading] = useState(true);
     // useEffect(() => {
-    //     fetch('http://localhost:5300/posts')
+    //     fetch('https://online-chat-nook-server.vercel.app/posts')
     //         .then(res => res.json())
     //         .then(data => {
     //             setPosts(data);

@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
           {
             path:'viewDetails/:id',
             element:<VeiwDetails></VeiwDetails>,
-            loader: ()=> fetch(`http://localhost:5300/posts`)
+            loader: ()=> fetch(`https://online-chat-nook-server.vercel.app/posts`)
           },
           {
             path:'/comment',
