@@ -18,6 +18,7 @@ import Dhome from "../Page/Dashboard/Dhome/Dhome";
 import Comment from "../components/Comment";
 import PrivateRouter from "./PrivateRouter";
 import AdminRoute from "./AdminRoute";
+import Membership from "../Page/membership/Membership";
 
 
 export const router = createBrowserRouter([
@@ -30,6 +31,11 @@ export const router = createBrowserRouter([
             element:<Home></Home>
         },
         {
+          path:'membership',
+          element:<PrivateRouter><Membership></Membership></PrivateRouter>
+
+        },
+        {
             path:'login',
             element:<Login></Login>
           },
@@ -40,13 +46,14 @@ export const router = createBrowserRouter([
           {
             path:'viewDetails/:id',
             element:<VeiwDetails></VeiwDetails>,
-            loader: ()=> fetch(`https://online-chat-nook-server.vercel.app/posts`)
+            loader: ()=> fetch(`http://localhost:5300/posts`)
           },
-          {
-            path:'/comment',
-            element:<PrivateRouter><Comment></Comment></PrivateRouter>
-          },
+         
       ]
+    },
+    {
+      path:'/comment',
+      element:<Comment></Comment>
     },
    
     {

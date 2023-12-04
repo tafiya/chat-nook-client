@@ -1,14 +1,16 @@
-
-import { Link } from "react-router-dom";
+import { TfiAnnouncement } from "react-icons/tfi";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../assets/image/chitchatlogo.png';
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import profile from '../assets/image/istockphoto-1495088043-612x612.jpg'
 import Swal from "sweetalert2";
+import useAnnouncement from "../hooks/useAnnouncement";
 
 
 const Navbar = () => {
   const {user,logOut}=useContext(AuthContext);
+  const [posts]=useAnnouncement();
   //const [cart] =useCart()
   const handleLogout=()=>{
     logOut()
@@ -18,7 +20,8 @@ const Navbar = () => {
     .catch(error=>console.log(error));
   }
     const navOption=<>
-    <li><Link to='/'>Home</Link></li>
+    <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/membership'>Membership</NavLink></li>
  
      
      
@@ -58,6 +61,10 @@ const Navbar = () => {
       </div> :<Link to='/login'><button className=" btn btn-outline btn-accent text-white">Join us</button></Link>
     
       }
+       <li><Link > <button className="btn">
+       <TfiAnnouncement />
+  <div className="badge badge-secondary">+{posts.length}</div>
+</button></Link></li>
         </div>
       </div>
         </>

@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
-
 import { MdPostAdd } from "react-icons/md";
-
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../hooks/UseAxiosPublic";
-import { useContext } from "react";
-import { AuthContext } from "../../../../Providers/AuthProvider";
+import UseAuth from "../../../../hooks/UseAuth";
+import useMyPosts from "../../../../hooks/useMyPosts";
+import usePayment from "../../../../hooks/usePayment";
+import { Link } from "react-router-dom";
+import membership from '../../../../assets/image/membership.svg'
 
 
 // import Swal from "sweetalert2";
@@ -18,7 +19,9 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const AddPost = () => {
     const { register,handleSubmit,reset} = useForm();
-    const {user}=useContext(AuthContext);
+    const {user}=UseAuth();
+    const[posts]=useMyPosts();
+    const [payments]=usePayment()
     const email=user.email;
     const axiosPublic = useAxiosPublic();
   
@@ -41,15 +44,13 @@ const AddPost = () => {
                 authorName: data.name,
                 authorImage: res.data.data.display_url,
                 tags: data.tag,
-                
-                upvote: parseFloat(data.upVote),
-                
+                authorEmail:data.email,
+                upvote: parseFloat(data.upVote),  
                 downvote: parseFloat(data.downVote),
-                 postTitle: data.post,
-                
+                postTitle: data.post,
                 postDescription: data.postdetails,
-                
                 currentTime:currentTime,
+                timestamp:currentTime.getTime()
             }
         
             // 
@@ -71,8 +72,23 @@ const AddPost = () => {
     };
     return (
         <div>
+       {
+        posts.length>4 && payments.length<1?< div className=" flex justify-center md:my-24">
+        <div className="card w-96 bg-base-100 shadow-xl">
+  <figure className="px-10 pt-10">
+    <img src={membership}alt="Shoes" className="rounded-xl" />
+   
+  </figure>
+  <div className="card-body items-center text-center">
+    <h2 className="card-title">Attention!</h2>
+    <p>To make more posts you need Membership</p>
+    <div className="card-actions">
+    <Link to='/membership'><button className="btn btn-outline btn-accent"> Become a Member</button></Link>
+    </div>
+  </div>
+</div>
        
-        <div>
+        </div>:<div>
         {/* onSubmit={handleSubmit(onSubmit)} */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full my-6">
@@ -86,6 +102,17 @@ const AddPost = () => {
                         required
                         className="input input-bordered w-full" />
                 </div>
+                <div className="form-control w-full my-6">
+                <label className="label">
+                  <span className="label-text">Author Email*</span>
+                </label>
+                <input
+                        type="email"
+                        placeholder="Author Email"
+                        {...register('email', { required: true })}
+                        required
+                        className="input input-bordered w-full" />
+              </div>
                 <label className="label">
                             <span className="label-text">Author Picture*</span>
                         </label>
@@ -165,6 +192,8 @@ const AddPost = () => {
                 </button>
             </form>
         </div>
+       }
+       
     </div>
     );
 };

@@ -10,7 +10,7 @@ const Posts = () => {
           <h2 className=" text-4xl font-semibold text-cyan-500 text-center my-12">-------Posts Feed-------</h2> 
           <div className=" grid  grid-cols-1 gap-6">
           {
-            posts.map(post=><EachPost key={post.id} post={post}></EachPost>)
+            posts.map(post=><EachPost key={post._id} post={post}></EachPost>)
           } 
 
           </div>

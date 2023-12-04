@@ -26,7 +26,7 @@ const SocialLogin = () => {
             .then(res =>{
                 console.log(res.data);
                 Swal.fire("login successfully done!");
-                navigate('/');
+                navigate(location ?. state ? location.state : '/');
             })
         })
     }

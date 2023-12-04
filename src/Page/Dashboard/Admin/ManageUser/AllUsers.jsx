@@ -21,6 +21,7 @@ const AllUsers = () => {
             return res.data;
         }
     })
+    
 
     const handleMakeAdmin = user =>{
         axiosSecure.patch(`/users/admin/${user._id}`)
@@ -81,6 +82,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -99,6 +101,7 @@ const AllUsers = () => {
                                     </button>}
                                     
                                 </td>
+                                <td>{user.status==='member'? 'Member':'Only User'}</td>
                                 <td>
                                     <button
                                         onClick={() => handleDeleteUser(user)}
