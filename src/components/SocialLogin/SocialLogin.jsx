@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import useAxiosPublic from "../../hooks/UseAxiosPublic";
 import UseAuth from "../../hooks/UseAuth";
 import Swal from "sweetalert2";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -17,15 +18,15 @@ const SocialLogin = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
-            console.log(result.user);
+           // console.log(result.user);
             const userInfo = {
                 email: result.user?.email,
                 name: result.user?.displayName
             }
             axiosPublic.post('/users', userInfo)
             .then(res =>{
-                console.log(res.data);
-                Swal.fire("login successfully done!");
+                
+                toast.success('Successfully login!')
                 navigate(location ?. state ? location.state : '/');
             })
         })
@@ -33,6 +34,7 @@ const SocialLogin = () => {
 
     return (
         <div className="p-8">
+          
             <div className="divider"></div>
             <div>
                 <button onClick={handleGoogleSignIn} className="btn">

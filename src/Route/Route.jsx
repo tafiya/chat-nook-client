@@ -19,12 +19,14 @@ import Comment from "../components/Comment";
 import PrivateRouter from "./PrivateRouter";
 import AdminRoute from "./AdminRoute";
 import Membership from "../Page/membership/Membership";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -46,7 +48,7 @@ export const router = createBrowserRouter([
           {
             path:'viewDetails/:id',
             element:<VeiwDetails></VeiwDetails>,
-            loader: ()=> fetch(`http://localhost:5300/posts`)
+            loader: ()=> fetch(`https://online-chat-nook-server.vercel.app/posts`)
           },
          
       ]

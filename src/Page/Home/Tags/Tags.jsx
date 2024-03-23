@@ -1,7 +1,8 @@
 import { useState } from "react";
 import usePosts from "../../../hooks/usePosts";
 import { useEffect } from "react";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Tags = () => {
     const [posts]=usePosts();
@@ -14,15 +15,15 @@ const Tags = () => {
       const uniqueTagsArray = Array.from(uniqueTagsSet);
       setUniqueTags(uniqueTagsArray);
     }, [posts]);
+    useEffect(() => {
+      AOS.init({})
+    }, [])
 
     return (
-        <div className="  my-24">
-              <h2 className=" text-4xl font-semibold text-cyan-500 text-center mt-12">-------Tags-------</h2>
-              <p className=" text-center text-xl text-slate-600 mb-12 mt-4 ">You can search by tag name</p> 
-       
-        <div className=" border-opacity-90 p-4  rounded-xl border grid md:grid-cols-2 grid-cols-2 gap-6">
+        <div className="  mt-24">
+        <div  data-aos="fade-down" data-aos-duration="1500" className=" shadow-lg shadow-[#2D9596] p-4  bg-[#265073] text-white rounded-xl border flex flex-wrap justify-center gap-6">
         {uniqueTags.map((tag, index) => (
-          <ul key={index}>#{tag}</ul>
+          <ul data-aos="zoom-in-up" data-aos-duration="2000" className="  underline italic font-semibold" key={index}>#{tag}</ul>
         ))}
 
         </div>

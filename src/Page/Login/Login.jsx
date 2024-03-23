@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import toast, { Toaster } from 'react-hot-toast';
 //import SocialLogin from '../../Componants/SocialLogin/SocialLogin';
 const Login = () => {
    
@@ -22,7 +23,7 @@ const Login = () => {
     },[])
     const handleValidCaptcha=e=>{
         const user_captcha_value=e.target.value;
-        console.log(user_captcha_value);
+        //console.log(user_captcha_value);
         if (validateCaptcha(user_captcha_value)==true) {
            
             setDisable(false);
@@ -38,13 +39,13 @@ const Login = () => {
         const form=e.target;
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password);
+       
        
         signIn(email,password)
         .then(result=>{
             const user =result.user;
-            Swal.fire("login successfully done!");
-          console.log(user);
+            toast.success('Successfully login!')
+           
           navigate(from,{replace: true});
         })
     }
@@ -54,6 +55,7 @@ const Login = () => {
             <title>ChatNook |login</title>
             </Helmet>
           <div className="hero min-h-screen ">
+         
         <div className="hero-content gap-24 flex-col md:flex-row">
           <div className="text-center lg:text-left w-1/2">
             
@@ -94,6 +96,7 @@ const Login = () => {
             <SocialLogin></SocialLogin>
           
           </div>
+          
          
         </div>
       </div></>

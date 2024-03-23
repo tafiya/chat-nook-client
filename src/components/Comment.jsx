@@ -7,20 +7,8 @@ import Swal from "sweetalert2";
 const Comment = () => {
     const { register,handleSubmit,reset} = useForm();
    
-    const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const onSubmit = async (data) => {
-       
-        // image upload to imgbb and then get an url
-        const imageFile = { image: data.image[0] }
-        const res = await axiosPublic.post( imageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        });
-        console.log(res.data);
-        if (res.data.success) {
-            // now send the comment item data to the server with the image url
             const commentItem = {
               
                 details: data.details,
@@ -35,7 +23,7 @@ const Comment = () => {
                 reset();
                 Swal.fire("Comment is  successfully done!");
             }
-        }
+        // }
      
     };
     return (

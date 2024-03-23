@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/UseAxiosPublic";
 import { useForm } from 'react-hook-form';
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
+//import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 
@@ -21,8 +21,8 @@ const Signup = () => {
         createUser(data.email,data.password)
         .then(result=>{
             const loggedUser=result.user;
-            console.log(loggedUser);
-            updateUserProfile(data.name,data.photoURL)
+            //console.log(loggedUser);
+            updateUserProfile(data.name,data.photoURL,data.phone)
             .then(()=>{
               const userInfo = {
                 name: data.name,
@@ -31,7 +31,7 @@ const Signup = () => {
               axiosPublic.post('/users', userInfo)
                 .then(res => {
                   if (res.data.insertedId) {
-                    console.log('user added to the database')
+                   // console.log('user added to the database')
                     reset();
                     Swal.fire({
                       position: 'top-end',
@@ -71,6 +71,13 @@ const Signup = () => {
                 <input type="text"  {...register("name",{ required: true })} placeholder="name" className="input input-bordered"  />
                 {errors.name && <span className=" text-red-600">This field is required</span>}
               </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Phone Number</span>
+                  </label>
+                  <input type="tel" name="phone" pattern="^\+?(88)?01[0-9]{9}$" placeholder="Phone Number" className="input input-bordered" {...register("phone", { required: true })} />
+                  <small>Format: 01XXXXXXXXX</small>
+                </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -102,7 +109,7 @@ const Signup = () => {
                 
               </div>
               <p><small>Already have an Account? <Link to='/login'><span className=" text-green-700 text-xl font-semibold">Login </span></Link></small></p>
-              <SocialLogin></SocialLogin>
+              {/* <SocialLogin></SocialLogin> */}
             </form>
           </div>
         </div>

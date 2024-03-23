@@ -8,9 +8,9 @@ const useMyPosts = () => {
     const {user}=UseAuth();
  
     const { data: posts = [],refetch } = useQuery({
-        queryKey: ['posts', user.email],
+        queryKey: ['posts', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/posts/${user.email}`)
+            const res = await axiosSecure.get(`/posts/${user?.email}`)
             return res.data;
         }
     })

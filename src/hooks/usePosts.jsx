@@ -3,21 +3,10 @@ import { useQuery } from "react-query";
 import useAxiosPublic from "./UseAxiosPublic";
 
 
-// import { useQuery } from "react-query";
-// import useAxiosPublic from "./useAxiosPublic";
 
 const usePosts = () => {
      const axiosPublic = useAxiosPublic();
-    //const [posts, setPosts] = useState([]);
-    //const [loading, setLoading] = useState(true);
-    // useEffect(() => {
-    //     fetch('http://localhost:5300/posts')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setPosts(data);
-    //             //setLoading(false);
-    //         });
-    // }, [])
+ 
 
     const {data: posts = [], isPending: loading, refetch} = useQuery({
         queryKey: ['posts'], 

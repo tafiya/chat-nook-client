@@ -26,7 +26,7 @@ const AddPost = () => {
     const axiosPublic = useAxiosPublic();
   
     const onSubmit = async (data) => {
-        console.log(data)
+       /// console.log(data)
         // image upload to imgbb and then get an url
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -36,7 +36,7 @@ const AddPost = () => {
          
         });
         const currentTime =new Date() ;
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data.success) {
             // now send the post item data to the server with the image url
             const postItem = {
@@ -55,7 +55,7 @@ const AddPost = () => {
         
             // 
             const postRes = await axiosPublic.post('/posts', postItem);
-            console.log(postRes.data)
+          //  console.log(postRes.data)
             if(postRes.data.insertedId){
                 //show success popup
                 reset();
@@ -68,66 +68,78 @@ const AddPost = () => {
                   });
             }
         }
-        console.log( 'with image url', res.data);
     };
     return (
         <div>
        {
-        posts.length>4 && payments.length<1?< div className=" flex justify-center md:my-24">
-        <div className="card w-96 bg-base-100 shadow-xl">
+        posts.length>2 && payments.length<1?< div className=" flex justify-center md:my-16">
+        <div className="card sm:w-3/4 md:h-[600px] w-96 bg-base-100 shadow-[#265073] shadow-lg">
   <figure className="px-10 pt-10">
-    <img src={membership}alt="Shoes" className="rounded-xl" />
+    <img src={membership}alt="Shoes" className="rounded-xl sm:h-[300px] shadow-[#265073] shadow-lg " />
    
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">Attention!</h2>
-    <p>To make more posts you need Membership</p>
+    <h2 className="card-title text-5xl font-bold  text-[#265073] ">Attention!</h2>
+    <p className="text-[#2D9596] font-semibold text-lg" >To make more posts you need Membership</p>
     <div className="card-actions">
-    <Link to='/membership'><button className="btn btn-outline btn-accent"> Become a Member</button></Link>
+    <Link to='/membership'><button className="hover:bg-[#265073] hover:scale-95 text-xl font-medium hover:text-white w-full p-4 px-10 rounded-full hover:shadow-xl   text-[#265073] shadow-[0px_0px_10px_#E2DADA] t duration-500  "> Become a Member</button></Link>
     </div>
   </div>
 </div>
        
         </div>:<div>
+            
+           
         {/* onSubmit={handleSubmit(onSubmit)} */}
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-control w-full my-6">
+            <form className=" rounded-xl  shadow-lg shadow-[#2D9596] border-white sm:p-12 sm:px-24 p-4 grid bg-[#265073] " onSubmit={handleSubmit(onSubmit)}>
+            <div className=" flex items-center justify-center">
+            <h2 className=" text-4xl text-center text-white rounded-badge shadow-lg shadow-[#2D9596] font-bold mt-6 mb-8  p-2 md:w-2/3"> Create Post</h2>
+
+            </div>
+               
+                <div className=" flex sm:flex-row flex-col gap-6">
+                <div className="form-control w-full flex justify-center my-6">
                     <label className="label">
-                        <span className="label-text">Author Name*</span>
+                        <span className="label-text text-lg font-semibold text-white">Author Name*</span>
                     </label>
                     <input
                         type="text"
                         placeholder="Author Name"
                         {...register('name', { required: true })}
                         required
-                        className="input input-bordered w-full" />
+                        className="input input-bordered w-full shadow-lg shadow-[#2D9596]" />
                 </div>
                 <div className="form-control w-full my-6">
                 <label className="label">
-                  <span className="label-text">Author Email*</span>
+                  <span className="label-text text-lg font-semibold text-white">Author Email*</span>
                 </label>
                 <input
                         type="email"
                         placeholder="Author Email"
                         {...register('email', { required: true })}
                         required
-                        className="input input-bordered w-full" />
+                        className="input input-bordered w-full shadow-lg shadow-[#2D9596]" />
               </div>
-                <label className="label">
-                            <span className="label-text">Author Picture*</span>
-                        </label>
-                <div className="form-control w-full ">
-                    <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
+
                 </div>
-                <div className="flex gap-6">
-                    {/* tag */}
-                    <div className="form-control w-full my-6">
+                <div className=" flex sm:flex-row flex-col gap-6">
+                    <div className="form-control w-full my-4">
+                    <label className="label">
+                            <span className="label-text text-lg font-semibold text-white">Author Picture*</span>
+                        </label>
+                        <div className="form-control w-full ">
+                    <input {...register('image', { required: true })} type="file" className="file-input w-full shadow-lg shadow-[#2D9596] " />
+                </div>
+
+                    </div>
+                       {/* tag */}
+                       <div className="form-control w-full my-4">
                         <label className="label">
-                            <span className="label-text">Tags*</span>
+                            <span className="label-text text-lg font-semibold text-white">Tags*</span>
                         </label>
                         <select defaultValue="default" {...register('tag', { required: true })}
-                            className="select select-bordered w-full">
-                            <option disabled value="default">Select a tag</option>
+                            className="select select-bordered w-full shadow-lg shadow-[#2D9596]">
+                            <option disabled value="default text-lg font-semibold text-white">Select a tag</option>
                             <option value="salad">Art</option>
                             <option value="pizza">Music</option>
                             <option value="soup">Solo travel</option>
@@ -135,61 +147,65 @@ const AddPost = () => {
                             <option value="drinks">Cooking</option>
                         </select>
                     </div>
-
-                    {/* price */}
-                    <div className="form-control w-full my-6">
+                </div>
+                <div className="flex sm:flex-row flex-col gap-6">
+                    {/*post title */}
+                    <div className="form-control w-full mt-4">
                         <label className="label">
-                            <span className="label-text">Post Title*</span>
+                            <span className="label-text text-lg font-semibold text-white">Post Title*</span>
                         </label>
                         <input
                         type="text"
                         placeholder="Post here"
                         {...register('post', { required: true })}
                         required
-                        className="input input-bordered w-full" />
+                        className="input input-bordered w-full shadow-lg shadow-[#2D9596]" />
                       
                     </div>
-
-                </div>
-                {/* postdetails details */}
-                <div className="form-control">
+                     {/* postdetails details */}
+                <div className="form-control w-full mt-4">
                     <label className="label">
-                        <span className="label-text">Post Description</span>
+                        <span className="label-text text-lg font-semibold text-white">Post Description</span>
                     </label>
-                    <textarea {...register('postdetails')} className="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+                    <textarea {...register('postdetails')} className="textarea textarea-bordered h-24 shadow-lg shadow-[#2D9596]" placeholder="Bio"></textarea>
                 </div>
-
-                  {/* price */}
-                  <div className="form-control w-1/3 my-6">
-                        <label className="label">
-                            <span className="label-text">UpVote*</span>
+                </div>
+               <div className=" flex w-1/2 gap-6  flex-row ">
+                    {/* price */}
+                    <div className="form-control w-1/3">
+                        <label className="label ">
+                            <span className="text-lg font-semibold text-white">UpVote*</span>
                         </label>
                         <input
                         type="number"
                         placeholder="UpVote"
                         {...register('upVote', { required: true })}
                         required
-                        className="input input-bordered w-full" />
+                        className="input input-bordered w-full shadow-lg shadow-[#2D9596]" />
                       
                     </div>
-                    <div className="form-control w-1/3 my-6">
+                    <div className="form-control w-1/3">
                         <label className="label">
-                            <span className="label-text">DownVote*</span>
+                            <span className="label-text text-lg font-semibold text-white">DownVote*</span>
                         </label>
                         <input
                         type="number"
                         placeholder="DownVote"
                         {...register('downVote', { required: true })}
                         required
-                        className="input input-bordered w-full" />
+                        className="input input-bordered w-full shadow-lg shadow-[#2D9596]" />
                       
-                    </div>
+                    </div>  
 
-             
-
-                <button className="btn my-4 btn-accent  ">
-                    Create Post <MdPostAdd className="ml-4" />
+               </div>
+                     
+          <div className="form-control w-full flex justify-center items-center mt-3">
+          <button className="btn w-1/3 my-4 btn-accent text-xl font-semibold text-white ">
+          <MdPostAdd size={'2em'} className="" />Post 
                 </button>
+
+          </div>
+                
             </form>
         </div>
        }
