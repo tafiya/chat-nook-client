@@ -119,8 +119,6 @@ const CheckoutForm = () => {
     }
 
     return (
-       
-            
             <div className="max-w-[370px] h-[270px] mx-auto bg-gradient-to-r from-blue-600 to-blue-400 overflow-hidden rounded-xl p-8 shadow-lg relative transform rotate-3 hover:scale-105 hover:rotate-0 transition-transform duration-300">
                 <div className="absolute -top-5 -right-10  w-44 h-44 bg-white rounded-full opacity-10" />
                 <div className="absolute -bottom-8 -right-10 w-44 h-44 bg-white rounded-full opacity-10" />

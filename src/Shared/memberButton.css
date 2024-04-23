@@ -1,0 +1,65 @@
+.member {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 0;
+    background: rgb(7, 7, 7);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10rem;
+    transition: all 0.02s;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    z-index: 0;
+    box-shadow: 0 0px 7px -5px rgba(251, 249, 249, 0.5);
+  }
+  
+  .member:hover {
+    background: rgb(193, 228, 248);
+    color: rgb(33, 0, 85);
+  }
+  
+  .member:active {
+    transform: scale(0.97);
+  }
+  
+  .hoverEffect {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  
+  .hoverEffect div {
+    background: rgb(6, 6, 6);
+    border: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    border-radius: 40rem;
+    width: 10rem;
+    height: 10rem;
+    transition: 0.4s;
+    filter: blur(20px);
+    animation: effect infinite 3s linear;
+    opacity: 0.5;
+  }
+  
+  .member:hover .hoverEffect div {
+    width: 8rem;
+    height: 8rem;
+  }
+  
+  @keyframes effect {
+  
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }

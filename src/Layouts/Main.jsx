@@ -11,6 +11,7 @@ const Main = () => {
 
     return (
         <div>
+
             {noHeaderFooter || <Navbar></Navbar>}
      
            <Outlet ></Outlet>

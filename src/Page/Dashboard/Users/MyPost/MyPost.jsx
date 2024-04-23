@@ -54,13 +54,13 @@ const MyPost = () => {
 
         </div>
         <div className=" overflow-x-auto bg-[#265073] md:p-6 rounded-lg shadow-lg shadow-[#2D9596] lg:mb-0  ">
-            <table className="table table-zebra md:w-full  ">
+            <table className="table md:w-full  ">
                 {/* head */}
                 <thead className="text-center text-xl font-extrabold bg-white  shadow rounded-xl" >
                     <tr>
                         
                         <th>Post Title</th>
-                        <th> votes</th>
+                        <th> Votes</th>
                         <th>Comment</th>
                         <th>Action</th>
                     </tr>

@@ -7,7 +7,7 @@ import profile from '../assets/image/istockphoto-1495088043-612x612.jpg'
 
 import useAnnouncement from "../hooks/useAnnouncement";
 import ShowAnnouncement from "../Page/Home/ShowAnnouncement/ShowAnnouncement";
-
+import '../Shared/memberButton.css'
 import '../Shared/button.css'
 import toast from "react-hot-toast";
 import useAdmin from "../hooks/useAdmin";
@@ -28,7 +28,10 @@ const Navbar = () => {
   }
     const navOption=<>
     <li><Link className="active:underline font-medium text-lg" to='/'>Home</Link></li>
-    <li><Link className="active:underline  font-medium text-lg" to='/membership'>Membership</Link></li>
+    <li><Link to='/membership'><button className="flex items-center gap-4 px-4 py-1 bg-gradient-to-t from-[#ee5d1f] to-[#f03489] text-white md:text-lg text-lg font-medium rounded-full
+     ">
+Membership
+</button></Link></li>
           
     </>
     return (
@@ -81,7 +84,7 @@ const Navbar = () => {
               </>
                 :
                 <>
-                 <Link to='/login'><button className=" p-2 border border-accent  rounded-lg  text-accent ">Join us</button></Link>
+                 <Link to='/login'><button className="but p-2 border border-accent  rounded-lg  text-accent ">Join us</button></Link>
                 </>
                 
 
